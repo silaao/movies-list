@@ -1,6 +1,7 @@
 package com.silasdev.movielist
 
 import MovieScreen
+import android.R.attr.apiKey
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -35,7 +36,7 @@ fun MovieApp() {
         Column(modifier = Modifier.padding(innerPadding)) {
             when (selectedTab) {
                 0 -> MovieScreen()
-                1 -> NowPlayingScreen()
+                1 -> NowPlayingScreen(apiKey = "5ac3694702a27824c2bb5c54a0506de4")
             }
         }
     }

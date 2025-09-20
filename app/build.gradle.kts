@@ -70,7 +70,15 @@ dependencies {
     implementation("androidx.room:room-runtime:2.7.0")
     ksp("androidx.room:room-compiler:2.7.0")
 
-
-    // se quiser coroutines também:
+    // Coroutines :
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    ///Recursos de API:
+    // Retrofit + Gson
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+// Coroutines
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+// Coil para imagens
+    implementation("io.coil-kt:coil-compose:2.5.0")
 }

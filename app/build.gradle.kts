@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.silasdev.movielist"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.silasdev.movielist"
@@ -58,6 +58,8 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.ads.mobile.sdk)
+    implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -81,4 +83,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 // Coil para imagens
     implementation("io.coil-kt:coil-compose:2.5.0")
+    //Nav entre abas
+    implementation("com.google.accompanist:accompanist-pager:0.28.0")
+    implementation("com.google.accompanist:accompanist-pager-indicators:0.28.0")
 }

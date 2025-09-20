@@ -1,5 +1,6 @@
 package com.silasdev.movielist
 
+import MovieApp
 import MovieScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity

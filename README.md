@@ -26,14 +26,16 @@ Clone este repositório:
 ```bash
 git clone https://github.com/silaao/movies-list.git
 Abra o projeto no Android Studio, configure sua chave de API do TMDB no local indicado no código (ApiClient.kt) e execute o app.
-
-🚧 Em Produção
+````
+## 🚧 Em Produção
 
 O aplicativo ainda está em desenvolvimento. Próximas funcionalidades planejadas:
 
 Tela de detalhes do filme com informações mais completas.
 
 Filtros e busca de filmes.
+
+IA para sugestões de Filmes similares.
 
 Melhorias no design, animações e testes automatizados.
 

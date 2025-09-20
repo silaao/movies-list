@@ -1,6 +1,7 @@
 package com.silasdev.movielist
 
 import MovieScreen
+import MovieViewModel
 import android.R.attr.apiKey
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -14,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 
 @Composable
 fun MovieApp() {
@@ -34,9 +36,12 @@ fun MovieApp() {
         }
     ) { innerPadding ->
         Column(modifier = Modifier.padding(innerPadding)) {
+            val movieViewModel: MovieViewModel = viewModel() // seu viewmodel do Room
+
             when (selectedTab) {
                 0 -> MovieScreen()
-                1 -> NowPlayingScreen(apiKey = "5ac3694702a27824c2bb5c54a0506de4")
+                1 -> NowPlayingScreen(apiKey = "5ac3694702a27824c2bb5c54a0506de4",
+                    movieViewModel = movieViewModel)
             }
         }
     }

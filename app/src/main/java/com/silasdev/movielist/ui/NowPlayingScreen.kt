@@ -1,5 +1,7 @@
 package com.silasdev.movielist
 
+import MovieViewModel
+import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,6 +12,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,24 +20,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.silasdev.movielist.data.TmdbMovie
 import com.silasdev.movielist.ui.NowPlayingViewModel
 
-// Aqui você poderia buscar os filmes de uma API, mas para exemplo vou usar lista fixa
-val nowPlayingMovies = listOf(
-    "Duna: Parte 2",
-    "Deadpool & Wolverine",
-    "Beetlejuice Beetlejuice",
-    "Meu Malvado Favorito 4"
-)
-
 @Composable
 fun NowPlayingScreen(
     apiKey: String,
+    movieViewModel: MovieViewModel,
     viewModel: NowPlayingViewModel = viewModel()
 ) {
     LaunchedEffect(Unit) {
@@ -45,13 +43,16 @@ fun NowPlayingScreen(
 
     LazyColumn(modifier = Modifier.fillMaxSize()) {
         items(movies) { movie ->
-            MovieCard(movie)
+            MovieCard(movie) {
+                // Ao clicar no botão, adiciona no Room
+                movieViewModel.addMovie(title = movie.title, watched = false)
+            }
         }
     }
 }
 
 @Composable
-fun MovieCard(movie: TmdbMovie) {
+fun MovieCard(movie: TmdbMovie, onAddClick: () -> Unit) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -72,6 +73,27 @@ fun MovieCard(movie: TmdbMovie) {
                 Text("⭐ ${movie.voteAverage}")
                 Text(movie.overview, maxLines = 3, style = MaterialTheme.typography.bodySmall)
             }
+        }
+        Column(
+            modifier = Modifier.fillMaxWidth(), // Ocupa a largura total para que a centralização funcione
+            horizontalAlignment = Alignment.CenterHorizontally // Centraliza o conteúdo horizontalmente, eu quiser
+        ) {
+            val context = LocalContext.current
+            Spacer(modifier = Modifier.height(4.dp))
+            Button(
+                onClick = {
+                    onAddClick()
+                    Toast.makeText(
+                        context,
+                        "Filme adicionado à sua lista!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text("Adicionar à Minha Lista")
+            }
+
         }
     }
 }

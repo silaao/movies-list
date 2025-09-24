@@ -2,8 +2,8 @@ package com.silasdev.movielist.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.silasdev.movielist.data.TmdbMovie
-import com.silasdev.movielist.network.RetrofitInstance
+import com.silasdev.movielist.data.remote.TmdbMovie
+import com.silasdev.movielist.data.remote.RetrofitInstance
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch

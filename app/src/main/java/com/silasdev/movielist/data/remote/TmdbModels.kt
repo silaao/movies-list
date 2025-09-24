@@ -1,4 +1,4 @@
-package com.silasdev.movielist.data
+package com.silasdev.movielist.data.remote
 
 import com.google.gson.annotations.SerializedName
 

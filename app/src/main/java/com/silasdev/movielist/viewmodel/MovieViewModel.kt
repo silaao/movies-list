@@ -1,7 +1,9 @@
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
-import com.silasdev.movielist.data.MovieRepository
+import com.silasdev.movielist.data.repository.MovieRepository
+import com.silasdev.movielist.data.local.AppDatabase
+import com.silasdev.movielist.data.local.Movie
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch

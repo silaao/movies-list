@@ -26,7 +26,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.silasdev.movielist.data.TmdbMovie
+import com.silasdev.movielist.data.remote.TmdbMovie
 import com.silasdev.movielist.ui.NowPlayingViewModel
 
 @Composable
